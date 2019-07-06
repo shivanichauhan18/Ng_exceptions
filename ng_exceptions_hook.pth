@@ -1,0 +1,1 @@
+import os; exec("try:\n  if 'NG_EXCEPTIONS' in os.environ:import NG_EXCEPTIONS;NG_EXCEPTIONS.hook()\nexcept:print('An error occured while automatically hooking NG_EXCEPTIONS.\\nIf you uninstalled NG_EXCEPTIONS, you should probably delete any \\'NG_EXCEPTIONS_hook.pth\\' file on your system or unset your \\'NG_EXCEPTIONS\\' environment variable.'); raise;")

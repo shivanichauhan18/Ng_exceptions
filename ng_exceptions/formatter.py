@@ -249,7 +249,7 @@ class ExceptionFormatter(object):
             line += u'{}{} {}'.format((' ' * (col - index)), self._cap_char, val)
             lines.append(self._theme['inspect'](line) if self._colored else line)
         formatted = u'\n    '.join([to_unicode(x) for x in lines])
-
+        # print (formatted,"--------------------------")
         return (filename, lineno, function, formatted), color_source
 
 
@@ -307,13 +307,11 @@ class ExceptionFormatter(object):
             yield u'Traceback (most recent call last):\n'
 
         formatted, colored_source = self.format_traceback(exc_traceback)
-
         yield formatted
 
         if not str(value) and exc_type is AssertionError:
             value.args = (colored_source,)
         title = traceback.format_exception_only(exc_type, value)
-
         yield u''.join(title).strip() + u'\n'
 
     def format_exception(self, exc, value, tb):

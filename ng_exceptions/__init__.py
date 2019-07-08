@@ -15,7 +15,7 @@ from __future__ import print_function
 
 import logging
 import sys
-
+from .translate import*
 from .formatter import THEME, MAX_LENGTH, PIPE_CHAR, CAP_CHAR, ExceptionFormatter
 from .encoding import to_byte
 from .context import PY3
@@ -51,6 +51,8 @@ def format_exception(exc, value, tb):
 
 def excepthook(exc, value, tb):
     formatted = u''.join(format_exception(exc, value, tb))
+    formatted=translater(formatted)
+
     write_stream(formatted, STREAM)
 
 

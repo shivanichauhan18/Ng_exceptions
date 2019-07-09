@@ -62,7 +62,8 @@ errors_list=[{
 def translater(formatted):
   index=0
   while index<len(errors_list):
-    if errors_list[index]["from"] == formatted:
+    if errors_list[index]["from"] in formatted:
       formatted+=errors_list[index]["to"]
       return formatted
     index=index+1
+  return formatted
